@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AquaLearner Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
-</head>
-<body>
-  
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
     <!-- Sidebar -->
     <!--
     <div class="sidebar">
@@ -53,315 +52,419 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <!-- Top Bar -->
-        <div class="top-bar">
-            <div class="coins-display">
-                <div class="coins-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="8"></circle>
-                        <line x1="12" y1="8" x2="12" y2="12"></line>
-                        <line x1="12" y1="16" x2="12" y2="16"></line>
-                    </svg>
-                </div>
-                <span class="coins-value">2,450</span>
-                <span class="coins-label">Coins</span>
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="coins-display">
+          <div class="coins-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12" y2="16"></line>
+            </svg>
+          </div>
+          <span class="coins-value">2,450</span>
+          <span class="coins-label">Coins</span>
+        </div>
+        <div class="power-up-display">
+          <div class="power-up-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <polygon
+                points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <span class="power-up-value">5</span>
+          <span class="power-up-label">Power-ups</span>
+        </div>
+      </div>
+
+      <!-- Navbar -->
+      <div class="navbar">
+        <div class="search-bar">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" placeholder="Search..." />
+        </div>
+        <div class="nav-links">
+          <a href="daily-problem.html" class="nav-link active">Daily Problem</a>
+          <a href="courses.html" class="nav-link">Courses</a>
+          <a href="problems.html" class="nav-link">Problems</a>
+          <a href="contests.html" class="nav-link">Contests</a>
+          <a href="community.html" class="nav-link">Community</a>
+        </div>
+        <div class="user-info">
+          <div class="user-avatar">
+            <img
+              src="images/image-removebg-preview (13).png"
+              alt="User Avatar" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Welcome Banner -->
+      <div class="welcome-banner">
+        <div class="welcome-text">
+          <h1>Hello Alex!</h1>
+          <p>
+            You've solved 3 problems today. Your streak is now 7 days! Keep up
+            the great work and earn more badges.
+          </p>
+        </div>
+        <div class="welcome-image">
+          <img src="images/image-removebg-preview (13).png" alt="Coding Kid" />
+        </div>
+      </div>
+
+      <!-- Dashboard Grid -->
+      <div class="dashboard-grid">
+        <!-- Profile Section -->
+        <div class="profile-section">
+          <!-- Profile Card -->
+          <div class="profile-card">
+            <div class="profile-header">
+              <div class="profile-avatar">
+                <img
+                  src="images/image-removebg-preview (13).png"
+                  alt="User Avatar" />
+              </div>
+              <div class="profile-info">
+                <h2>Alex Johnson</h2>
+                <p>Age: 12</p>
+                <p>Level: Intermediate</p>
+              </div>
             </div>
-            <div class="power-up-display">
-                <div class="power-up-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                    </svg>
-                </div>
-                <span class="power-up-value">5</span>
-                <span class="power-up-label">Power-ups</span>
+            <div class="profile-stats">
+              <div class="stat-item">
+                <div class="stat-value">42</div>
+                <div class="stat-label">Days</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">156</div>
+                <div class="stat-label">Problems</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Contests</div>
+              </div>
             </div>
+          </div>
+
+          <!-- Languages Card -->
+          <div class="languages-card">
+            <h3>Active Languages</h3>
+            <div class="language-item">
+              <div class="language-icon" style="background-color: #f0db4f">
+                <span>JS</span>
+              </div>
+              <div class="language-progress">
+                <div class="language-name">
+                  <span>JavaScript</span>
+                  <span>85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill"
+                    style="width: 85%; background: var(--gradient-blue)"></div>
+                </div>
+              </div>
+            </div>
+            <div class="language-item">
+              <div class="language-icon" style="background-color: #3572a5">
+                <span>PY</span>
+              </div>
+              <div class="language-progress">
+                <div class="language-name">
+                  <span>Python</span>
+                  <span>72%</span>
+                </div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill"
+                    style="
+                      width: 72%;
+                      background: var(--gradient-blue-reverse);
+                    "></div>
+                </div>
+              </div>
+            </div>
+            <div class="language-item">
+              <div class="language-icon" style="background-color: #f16529">
+                <span>HT</span>
+              </div>
+              <div class="language-progress">
+                <div class="language-name">
+                  <span>HTML/CSS</span>
+                  <span>90%</span>
+                </div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill"
+                    style="width: 90%; background: var(--gradient-blue)"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Badges Card -->
+          <div class="badges-card">
+            <h3>Top Badges</h3>
+            <div class="badges-grid">
+              <div class="badge-item">
+                <div class="badge-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                      d="M12 15c2.21 0 4-1.79 4-4 0-2.21-1.79-4-4-4-2.21 0-4 1.79-4 4 0 2.21 1.79 4 4 4z"></path>
+                    <path
+                      d="M19.94 14.5c-.34 2.25-1.88 4.13-4.06 5.05-1.16.49-2.42.73-3.68.73-.44 0-.88-.03-1.32-.09a8.07 8.07 0 0 1-5.06-2.63c-1.58-1.6-2.45-3.73-2.45-5.94 0-2.22.87-4.35 2.46-5.94A8.07 8.07 0 0 1 11 3.17c.44-.06.88-.1 1.32-.1 1.26 0 2.52.25 3.68.74 2.18.92 3.72 2.79 4.06 5.04"></path>
+                    <path d="M15.25 9.54l-4.5 4.5-1.5-1.5"></path>
+                  </svg>
+                </div>
+                <div class="badge-name">Problem Solver</div>
+              </div>
+              <div class="badge-item">
+                <div class="badge-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                      d="M20.2 6.5l-8.2-4.5-8.2 4.5 8.2 4.5 8.2-4.5z"></path>
+                    <path d="M3.8 9.7l8.2 4.5 8.2-4.5"></path>
+                    <path d="M3.8 13.8l8.2 4.5 8.2-4.5"></path>
+                  </svg>
+                </div>
+                <div class="badge-name">Fast Learner</div>
+              </div>
+              <div class="badge-item">
+                <div class="badge-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 2v20"></path>
+                    <path
+                      d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
+                </div>
+                <div class="badge-name">Streak Master</div>
+              </div>
+              <div class="badge-item">
+                <div class="badge-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+                <div class="badge-name">Contest Winner</div>
+              </div>
+              <div class="badge-item">
+                <div class="badge-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline
+                      points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                  </svg>
+                </div>
+                <div class="badge-name">Top Coder</div>
+              </div>
+              <div class="badge-item">
+                <div class="badge-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 2v4"></path>
+                    <path d="M12 18v4"></path>
+                    <path d="M4.93 4.93l2.83 2.83"></path>
+                    <path d="M16.24 16.24l2.83 2.83"></path>
+                    <path d="M2 12h4"></path>
+                    <path d="M18 12h4"></path>
+                    <path d="M4.93 19.07l2.83-2.83"></path>
+                    <path d="M16.24 7.76l2.83-2.83"></path>
+                  </svg>
+                </div>
+                <div class="badge-name">Creative Coder</div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Navbar -->
-        <div class="navbar">
-            <div class="search-bar">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input type="text" placeholder="Search...">
+        <!-- Stats Section -->
+        <div class="stats-section">
+          <!-- Stats Card -->
+          <div class="stats-card">
+            <div class="stats-header">
+              <h3>Performance Stats</h3>
             </div>
-            <div class="nav-links">
-                <a href="#" class="nav-link active">Daily Problem</a>
-                <a href="#" class="nav-link">Courses</a>
-                <a href="#" class="nav-link">Problems</a>
-                <a href="#" class="nav-link">Contests</a>
-                <a href="#" class="nav-link">Community</a>
-            </div>
-            <div class="user-info">
-                <div class="user-avatar">
-                    <img src="images/image-removebg-preview (13).png" alt="User Avatar">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-card-header">
+                  <span>Problems Solved</span>
+                  <span style="color: var(--teal)">+12%</span>
                 </div>
+                <div class="stat-card-value">156</div>
+                <div class="stat-card-chart">
+                  <canvas id="problemsChart"></canvas>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-card-header">
+                  <span>Accuracy</span>
+                  <span style="color: var(--teal)">+5%</span>
+                </div>
+                <div class="stat-card-value">78%</div>
+                <div class="stat-card-chart">
+                  <canvas id="accuracyChart"></canvas>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <!-- Achievements Card -->
+          <div class="achievements-card">
+            <div class="stats-header">
+              <h3>Contest Achievements</h3>
+            </div>
+            <div class="charts-grid">
+              <div class="chart-container">
+                <canvas id="contestPieChart"></canvas>
+              </div>
+              <div class="chart-container">
+                <canvas id="difficultyPieChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Heatmap Card -->
+          <div class="heatmap-card">
+            <div class="stats-header">
+              <h3>Coding Activity</h3>
+            </div>
+            <div class="heatmap-container">
+              <div id="heatmap"></div>
+              <div class="heatmap-legend">
+                <span>Less</span>
+                <div
+                  class="heatmap-legend-item"
+                  style="background-color: rgba(255, 255, 255, 0.05)"></div>
+                <div
+                  class="heatmap-legend-item"
+                  style="background-color: rgba(94, 234, 212, 0.2)"></div>
+                <div
+                  class="heatmap-legend-item"
+                  style="background-color: rgba(94, 234, 212, 0.4)"></div>
+                <div
+                  class="heatmap-legend-item"
+                  style="background-color: rgba(94, 234, 212, 0.6)"></div>
+                <div
+                  class="heatmap-legend-item"
+                  style="background-color: rgba(94, 234, 212, 0.8)"></div>
+                <span>More</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tracker Card -->
+          <div class="tracker-card">
+            <div class="stats-header">
+              <h3>Learning Tracker</h3>
+            </div>
+            <div class="tracker-metrics">
+              <div class="tracker-metric">
+                <div class="metric-value">92%</div>
+                <div class="metric-label">Daily Appearance</div>
+                <div class="metric-progress">
+                  <div
+                    class="progress-fill"
+                    style="width: 92%; background: var(--teal)"></div>
+                </div>
+              </div>
+              <div class="tracker-metric">
+                <div class="metric-value">85%</div>
+                <div class="metric-label">Consistency</div>
+                <div class="metric-progress">
+                  <div
+                    class="progress-fill"
+                    style="width: 85%; background: var(--pastel-blue)"></div>
+                </div>
+              </div>
+              <div class="tracker-metric">
+                <div class="metric-value">78%</div>
+                <div class="metric-label">Learning Speed</div>
+                <div class="metric-progress">
+                  <div
+                    class="progress-fill"
+                    style="width: 78%; background: var(--gradient-blue)"></div>
+                </div>
+              </div>
+            </div>
+            <div class="tracker-chart-container">
+              <canvas id="trackerChart"></canvas>
+            </div>
+          </div>
         </div>
-
-        <!-- Welcome Banner -->
-        <div class="welcome-banner">
-            <div class="welcome-text">
-                <h1>Hello Alex!</h1>
-                <p>You've solved 3 problems today. Your streak is now 7 days! Keep up the great work and earn more badges.</p>
-            </div>
-            <div class="welcome-image">
-                <img src="images/image-removebg-preview (13).png" alt="Coding Kid">
-            </div>
-        </div>
-
-        <!-- Dashboard Grid -->
-        <div class="dashboard-grid">
-            <!-- Profile Section -->
-            <div class="profile-section">
-                <!-- Profile Card -->
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <div class="profile-avatar">
-                            <img src="images/image-removebg-preview (13).png" alt="User Avatar">
-                        </div>
-                        <div class="profile-info">
-                            <h2>Alex Johnson</h2>
-                            <p>Age: 12</p>
-                            <p>Level: Intermediate</p>
-                        </div>
-                    </div>
-                    <div class="profile-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">42</div>
-                            <div class="stat-label">Days</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">156</div>
-                            <div class="stat-label">Problems</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">8</div>
-                            <div class="stat-label">Contests</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Languages Card -->
-                <div class="languages-card">
-                    <h3>Active Languages</h3>
-                    <div class="language-item">
-                        <div class="language-icon" style="background-color: #F0DB4F;">
-                            <span>JS</span>
-                        </div>
-                        <div class="language-progress">
-                            <div class="language-name">
-                                <span>JavaScript</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 85%; background: var(--gradient-blue);"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="language-item">
-                        <div class="language-icon" style="background-color: #3572A5;">
-                            <span>PY</span>
-                        </div>
-                        <div class="language-progress">
-                            <div class="language-name">
-                                <span>Python</span>
-                                <span>72%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 72%; background: var(--gradient-blue-reverse);"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="language-item">
-                        <div class="language-icon" style="background-color: #F16529;">
-                            <span>HT</span>
-                        </div>
-                        <div class="language-progress">
-                            <div class="language-name">
-                                <span>HTML/CSS</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 90%; background: var(--gradient-blue);"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Badges Card -->
-                <div class="badges-card">
-                    <h3>Top Badges</h3>
-                    <div class="badges-grid">
-                        <div class="badge-item">
-                            <div class="badge-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 15c2.21 0 4-1.79 4-4 0-2.21-1.79-4-4-4-2.21 0-4 1.79-4 4 0 2.21 1.79 4 4 4z"></path>
-                                    <path d="M19.94 14.5c-.34 2.25-1.88 4.13-4.06 5.05-1.16.49-2.42.73-3.68.73-.44 0-.88-.03-1.32-.09a8.07 8.07 0 0 1-5.06-2.63c-1.58-1.6-2.45-3.73-2.45-5.94 0-2.22.87-4.35 2.46-5.94A8.07 8.07 0 0 1 11 3.17c.44-.06.88-.1 1.32-.1 1.26 0 2.52.25 3.68.74 2.18.92 3.72 2.79 4.06 5.04"></path>
-                                    <path d="M15.25 9.54l-4.5 4.5-1.5-1.5"></path>
-                                </svg>
-                            </div>
-                            <div class="badge-name">Problem Solver</div>
-                        </div>
-                        <div class="badge-item">
-                            <div class="badge-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20.2 6.5l-8.2-4.5-8.2 4.5 8.2 4.5 8.2-4.5z"></path>
-                                    <path d="M3.8 9.7l8.2 4.5 8.2-4.5"></path>
-                                    <path d="M3.8 13.8l8.2 4.5 8.2-4.5"></path>
-                                </svg>
-                            </div>
-                            <div class="badge-name">Fast Learner</div>
-                        </div>
-                        <div class="badge-item">
-                            <div class="badge-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 2v20"></path>
-                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                </svg>
-                            </div>
-                            <div class="badge-name">Streak Master</div>
-                        </div>
-                        <div class="badge-item">
-                            <div class="badge-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                </svg>
-                            </div>
-                            <div class="badge-name">Contest Winner</div>
-                        </div>
-                        <div class="badge-item">
-                            <div class="badge-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="8" r="7"></circle>
-                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                                </svg>
-                            </div>
-                            <div class="badge-name">Top Coder</div>
-                        </div>
-                        <div class="badge-item">
-                            <div class="badge-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 2v4"></path>
-                                    <path d="M12 18v4"></path>
-                                    <path d="M4.93 4.93l2.83 2.83"></path>
-                                    <path d="M16.24 16.24l2.83 2.83"></path>
-                                    <path d="M2 12h4"></path>
-                                    <path d="M18 12h4"></path>
-                                    <path d="M4.93 19.07l2.83-2.83"></path>
-                                    <path d="M16.24 7.76l2.83-2.83"></path>
-                                </svg>
-                            </div>
-                            <div class="badge-name">Creative Coder</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stats Section -->
-            <div class="stats-section">
-                <!-- Stats Card -->
-                <div class="stats-card">
-                    <div class="stats-header">
-                        <h3>Performance Stats</h3>
-                    </div>
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-card-header">
-                                <span>Problems Solved</span>
-                                <span style="color: var(--teal);">+12%</span>
-                            </div>
-                            <div class="stat-card-value">156</div>
-                            <div class="stat-card-chart">
-                                <canvas id="problemsChart"></canvas>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-card-header">
-                                <span>Accuracy</span>
-                                <span style="color: var(--teal);">+5%</span>
-                            </div>
-                            <div class="stat-card-value">78%</div>
-                            <div class="stat-card-chart">
-                                <canvas id="accuracyChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Achievements Card -->
-                <div class="achievements-card">
-                    <div class="stats-header">
-                        <h3>Contest Achievements</h3>
-                    </div>
-                    <div class="charts-grid">
-                        <div class="chart-container">
-                            <canvas id="contestPieChart"></canvas>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="difficultyPieChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Heatmap Card -->
-                <div class="heatmap-card">
-                    <div class="stats-header">
-                        <h3>Coding Activity</h3>
-                    </div>
-                    <div class="heatmap-container">
-                        <div id="heatmap"></div>
-                        <div class="heatmap-legend">
-                            <span>Less</span>
-                            <div class="heatmap-legend-item" style="background-color: rgba(255, 255, 255, 0.05);"></div>
-                            <div class="heatmap-legend-item" style="background-color: rgba(94, 234, 212, 0.2);"></div>
-                            <div class="heatmap-legend-item" style="background-color: rgba(94, 234, 212, 0.4);"></div>
-                            <div class="heatmap-legend-item" style="background-color: rgba(94, 234, 212, 0.6);"></div>
-                            <div class="heatmap-legend-item" style="background-color: rgba(94, 234, 212, 0.8);"></div>
-                            <span>More</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tracker Card -->
-                <div class="tracker-card">
-                    <div class="stats-header">
-                        <h3>Learning Tracker</h3>
-                    </div>
-                    <div class="tracker-metrics">
-                        <div class="tracker-metric">
-                            <div class="metric-value">92%</div>
-                            <div class="metric-label">Daily Appearance</div>
-                            <div class="metric-progress">
-                                <div class="progress-fill" style="width: 92%; background: var(--teal);"></div>
-                            </div>
-                        </div>
-                        <div class="tracker-metric">
-                            <div class="metric-value">85%</div>
-                            <div class="metric-label">Consistency</div>
-                            <div class="metric-progress">
-                                <div class="progress-fill" style="width: 85%; background: var(--pastel-blue);"></div>
-                            </div>
-                        </div>
-                        <div class="tracker-metric">
-                            <div class="metric-value">78%</div>
-                            <div class="metric-label">Learning Speed</div>
-                            <div class="metric-progress">
-                                <div class="progress-fill" style="width: 78%; background: var(--gradient-blue);"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tracker-chart-container">
-                        <canvas id="trackerChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="dashboard.js"></script>
-</body>
+  </body>
 </html>
