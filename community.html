@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="community.css" />
+    <title>Community - CodeKids</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">CodeKids</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="daily-problem.html">Daily Problem</a>
+        <a href="courses.html">Courses</a>
+        <a href="problems.html">Problems</a>
+        <a href="contests.html">Contests</a>
+        <a href="community.html" class="active">Community</a>
+        <a href="#" class="profile-link"
+          ><img
+            src="https://picsum.photos/seed/user/40/40"
+            alt="Profile"
+            class="profile-pic"
+        /></a>
+      </div>
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
+
+    <div class="community-container">
+      <div class="community-header">
+        <h1>Community Forums</h1>
+        <p>Join discussions, ask questions, and share your knowledge!</p>
+        <div class="community-actions">
+          <div class="search-container">
+            <input type="text" placeholder="Search communities..." />
+            <button class="search-btn">Search</button>
+          </div>
+          <button class="create-community-btn">Create Community</button>
+        </div>
+      </div>
+
+      <div class="community-content">
+        <div class="community-sidebar">
+          <h3>Top Communities</h3>
+          <ul class="community-list">
+            <li class="community-item active">
+              <img
+                src="https://picsum.photos/seed/community1/40/40"
+                alt="Community Icon"
+              />
+              <span>Beginner Coders</span>
+              <span class="member-count">2.4k</span>
+            </li>
+            <li class="community-item">
+              <img
+                src="https://picsum.photos/seed/community2/40/40"
+                alt="Community Icon"
+              />
+              <span>Game Creators</span>
+              <span class="member-count">1.8k</span>
+            </li>
+            <li class="community-item">
+              <img
+                src="https://picsum.photos/seed/community3/40/40"
+                alt="Community Icon"
+              />
+              <span>Python Wizards</span>
+              <span class="member-count">1.2k</span>
+            </li>
+            <li class="community-item">
+              <img
+                src="https://picsum.photos/seed/community4/40/40"
+                alt="Community Icon"
+              />
+              <span>Web Wonders</span>
+              <span class="member-count">950</span>
+            </li>
+            <li class="community-item">
+              <img
+                src="https://picsum.photos/seed/community5/40/40"
+                alt="Community Icon"
+              />
+              <span>Coding Challenges</span>
+              <span class="member-count">820</span>
+            </li>
+          </ul>
+
+          <h3>Your Communities</h3>
+          <ul class="community-list">
+            <li class="community-item">
+              <img
+                src="https://picsum.photos/seed/community1/40/40"
+                alt="Community Icon"
+              />
+              <span>Beginner Coders</span>
+            </li>
+            <li class="community-item">
+              <img
+                src="https://picsum.photos/seed/community3/40/40"
+                alt="Community Icon"
+              />
+              <span>Python Wizards</span>
+            </li>
+            <li class="community-item">
+              <img
+                src="https://picsum.photos/seed/community6/40/40"
+                alt="Community Icon"
+              />
+              <span>Art & Code</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="community-main">
+          <div class="community-info">
+            <div class="community-banner">
+              <img
+                src="https://picsum.photos/seed/community1/800/200"
+                alt="Community Banner"
+              />
+            </div>
+            <div class="community-details">
+              <div class="community-icon">
+                <img
+                  src="https://picsum.photos/seed/community1/80/80"
+                  alt="Community Icon"
+                />
+              </div>
+              <div class="community-text">
+                <h2>Beginner Coders</h2>
+                <p>
+                  A friendly community for those just starting their coding
+                  journey. Ask questions, share resources, and learn together!
+                </p>
+                <div class="community-stats">
+                  <div class="stat">
+                    <span class="stat-value">2,437</span>
+                    <span class="stat-label">Members</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-value">128</span>
+                    <span class="stat-label">Online</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-value">567</span>
+                    <span class="stat-label">Topics</span>
+                  </div>
+                </div>
+              </div>
+              <button class="join-btn joined">Joined</button>
+            </div>
+          </div>
+
+          <div class="post-filter">
+            <div class="filter-item active">Popular</div>
+            <div class="filter-item">Recent</div>
+            <div class="filter-item">Unanswered</div>
+          </div>
+
+          <div class="create-post">
+            <div class="post-input">
+              <img
+                src="https://picsum.photos/seed/user/40/40"
+                alt="User Avatar"
+              />
+              <input
+                type="text"
+                placeholder="Start a discussion or ask a question..."
+              />
+            </div>
+            <div class="post-actions">
+              <button class="post-action">
+                <span class="action-icon">📷</span> Image
+              </button>
+              <button class="post-action">
+                <span class="action-icon">🔗</span> Link
+              </button>
+              <button class="post-action">
+                <span class="action-icon">📌</span> Poll
+              </button>
+              <button class="post-btn">Post</button>
+            </div>
+          </div>
+
+          <div class="discussion-list">
+            <div class="discussion-card">
+              <div class="discussion-votes">
+                <button class="vote-btn up">▲</button>
+                <span class="vote-count">42</span>
+                <button class="vote-btn down">▼</button>
+              </div>
+              <div class="discussion-content">
+                <div class="discussion-header">
+                  <div class="user-info">
+                    <img
+                      src="https://picsum.photos/seed/user1/30/30"
+                      alt="User Avatar"
+                    />
+                    <span class="username">CodingKid123</span>
+                  </div>
+                  <span class="post-time">2 days ago</span>
+                </div>
+                <h3 class="discussion-title">
+                  How do I start learning Python? Any advice for a 10-year-old?
+                </h3>
+                <p class="discussion-text">
+                  I'm really interested in learning to code but don't know where
+                  to start. My parents got me a computer for my birthday and I
+                  want to learn Python. Any tips or resources for beginners my
+                  age?
+                </p>
+                <div class="discussion-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">Beginners</span>
+                  <span class="tag">Learning</span>
+                </div>
+                <div class="discussion-actions">
+                  <button class="action-btn">
+                    <span class="action-icon">💬</span> 15 Comments
+                  </button>
+                  <button class="action-btn">
+                    <span class="action-icon">🔖</span> Save
+                  </button>
+                  <button class="action-btn">
+                    <span class="action-icon">🔄</span> Share
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="discussion-card">
+              <div class="discussion-votes">
+                <button class="vote-btn up">▲</button>
+                <span class="vote-count">38</span>
+                <button class="vote-btn down">▼</button>
+              </div>
+              <div class="discussion-content">
+                <div class="discussion-header">
+                  <div class="user-info">
+                    <img
+                      src="https://picsum.photos/seed/user2/30/30"
+                      alt="User Avatar"
+                    />
+                    <span class="username">RobotMaster</span>
+                  </div>
+                  <span class="post-time">3 days ago</span>
+                </div>
+                <h3 class="discussion-title">
+                  I made my first game! Check it out!
+                </h3>
+                <p class="discussion-text">
+                  After 3 weeks of learning Scratch, I made my first game. It's
+                  a simple space shooter but I'm really proud of it. Click the
+                  link to play and let me know what you think!
+                </p>
+                <div class="discussion-image">
+                  <img
+                    src="https://picsum.photos/seed/game/600/300"
+                    alt="Game Screenshot"
+                  />
+                </div>
+                <div class="discussion-tags">
+                  <span class="tag">Scratch</span>
+                  <span class="tag">Games</span>
+                  <span class="tag">Project</span>
+                </div>
+                <div class="discussion-actions">
+                  <button class="action-btn">
+                    <span class="action-icon">💬</span> 27 Comments
+                  </button>
+                  <button class="action-btn">
+                    <span class="action-icon">🔖</span> Save
+                  </button>
+                  <button class="action-btn">
+                    <span class="action-icon">🔄</span> Share
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="discussion-card">
+              <div class="discussion-votes">
+                <button class="vote-btn up">▲</button>
+                <span class="vote-count">24</span>
+                <button class="vote-btn down">▼</button>
+              </div>
+              <div class="discussion-content">
+                <div class="discussion-header">
+                  <div class="user-info">
+                    <img
+                      src="https://picsum.photos/seed/user3/30/30"
+                      alt="User Avatar"
+                    />
+                    <span class="username">CodeMentor</span>
+                    <span class="user-badge">Mentor</span>
+                  </div>
+                  <span class="post-time">1 week ago</span>
+                </div>
+                <h3 class="discussion-title">
+                  Weekly Beginner Challenge: Create a Calculator
+                </h3>
+                <p class="discussion-text">
+                  This week's beginner challenge is to create a simple
+                  calculator that can add, subtract, multiply, and divide. You
+                  can use any language you're comfortable with. Share your
+                  solutions in the comments!
+                </p>
+                <div class="discussion-tags">
+                  <span class="tag">Challenge</span>
+                  <span class="tag">Calculator</span>
+                  <span class="tag">Beginners</span>
+                </div>
+                <div class="discussion-actions">
+                  <button class="action-btn">
+                    <span class="action-icon">💬</span> 42 Comments
+                  </button>
+                  <button class="action-btn">
+                    <span class="action-icon">🔖</span> Save
+                  </button>
+                  <button class="action-btn">
+                    <span class="action-icon">🔄</span> Share
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pagination">
+            <button class="pagination-btn" disabled>Previous</button>
+            <div class="page-numbers">
+              <span class="page-number active">1</span>
+              <span class="page-number">2</span>
+              <span class="page-number">3</span>
+              <span class="page-number">...</span>
+              <span class="page-number">12</span>
+            </div>
+            <button class="pagination-btn">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="createCommunityModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Create a New Community</h2>
+        <form id="createCommunityForm">
+          <div class="form-group">
+            <label for="communityName">Community Name</label>
+            <input
+              type="text"
+              id="communityName"
+              name="communityName"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="communityDescription">Description</label>
+            <textarea
+              id="communityDescription"
+              name="communityDescription"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="communityIcon">Community Icon</label>
+            <input type="file" id="communityIcon" name="communityIcon" />
+          </div>
+          <div class="form-group">
+            <label for="communityBanner">Community Banner</label>
+            <input type="file" id="communityBanner" name="communityBanner" />
+          </div>
+          <div class="form-group">
+            <label>Community Type</label>
+            <div class="radio-group">
+              <label>
+                <input
+                  type="radio"
+                  name="communityType"
+                  value="public"
+                  checked
+                />
+                Public
+              </label>
+              <label>
+                <input type="radio" name="communityType" value="restricted" />
+                Restricted
+              </label>
+              <label>
+                <input type="radio" name="communityType" value="private" />
+                Private
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="create-btn">Create Community</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="navbar.js"></script>
+    <script src="community.js"></script>
+  </body>
+</html>

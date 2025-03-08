@@ -1,0 +1,402 @@
+.problems-container {
+  min-height: 100vh;
+  padding: 100px 30px 40px;
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+  color: #333;
+}
+
+.problems-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.problems-header h1 {
+  color: #002d62;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.problems-header h1:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #005477, #13274f);
+  border-radius: 2px;
+}
+
+.problems-header p {
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.problems-filter-container {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 20px rgba(0, 45, 98, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  flex: 1;
+  min-width: 300px;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px 0 0 5px;
+  font-size: 1rem;
+}
+
+.search-container input:focus {
+  outline: none;
+  border-color: #005477;
+}
+
+#search-btn {
+  padding: 12px 20px;
+  background-color: #005477;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#search-btn:hover {
+  background-color: #004060;
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: #002d62;
+}
+
+.filter-group select {
+  padding: 10px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 0.9rem;
+  color: #495057;
+  cursor: pointer;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: #005477;
+}
+
+.problems-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.problem-card {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0, 45, 98, 0.1);
+  display: flex;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.problem-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 45, 98, 0.15);
+}
+
+.problem-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.solved {
+  background-color: #e6f7e6;
+  color: #28a745;
+}
+
+.attempted {
+  background-color: #fff3cd;
+  color: #ffc107;
+}
+
+.unsolved {
+  background-color: #f8d7da;
+  color: #dc3545;
+}
+
+.status-icon {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.problem-info {
+  flex: 1;
+}
+
+.problem-info h3 {
+  color: #002d62;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.problem-info p {
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.problem-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tag {
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.difficulty-easy {
+  background-color: #e6f7e6;
+  color: #28a745;
+}
+
+.difficulty-medium {
+  background-color: #fff3cd;
+  color: #ffc107;
+}
+
+.difficulty-hard {
+  background-color: #f8d7da;
+  color: #dc3545;
+}
+
+.topic-arrays {
+  background-color: #e6f2ff;
+  color: #007bff;
+}
+
+.topic-strings {
+  background-color: #e6e6fa;
+  color: #6f42c1;
+}
+
+.topic-loops {
+  background-color: #f0fff0;
+  color: #20c997;
+}
+
+.topic-math {
+  background-color: #fff5e6;
+  color: #fd7e14;
+}
+
+.topic-logic {
+  background-color: #f8f9fa;
+  color: #6c757d;
+}
+
+.problem-stats {
+  display: flex;
+  gap: 15px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.stat-icon {
+  font-size: 1.1rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.pagination-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #005477;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-btn:hover:not([disabled]) {
+  background-color: #004060;
+}
+
+.pagination-btn[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.page-numbers {
+  display: flex;
+  margin: 0 15px;
+}
+
+.page-number {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page-number:hover:not(.active) {
+  background-color: #e6f2ff;
+}
+
+.page-number.active {
+  background-color: #005477;
+  color: #fff;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation delays for problem cards */
+.problem-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.problem-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.problem-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.problem-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.problem-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.problem-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+  .problems-container {
+    padding: 80px 20px 30px;
+  }
+
+  .problems-header h1 {
+    font-size: 2rem;
+  }
+
+  .problems-filter-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+
+  .filter-container {
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .problems-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .problems-list {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-group {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .filter-group select {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .filter-container {
+    flex-direction: column;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .page-numbers {
+    margin: 0 5px;
+  }
+
+  .page-number {
+    width: 30px;
+    height: 30px;
+    margin: 0 2px;
+  }
+}

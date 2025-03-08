@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="courses.css" />
+    <title>Courses - CodeKids</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">CodeKids</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="daily-problem.html">Daily Problem</a>
+        <a href="courses.html" class="active">Courses</a>
+        <a href="problems.html">Problems</a>
+        <a href="contests.html">Contests</a>
+        <a href="community.html">Community</a>
+        <a href="#" class="profile-link"
+          ><img
+            src="https://picsum.photos/seed/user/40/40"
+            alt="Profile"
+            class="profile-pic"
+        /></a>
+      </div>
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
+
+    <div class="courses-container">
+      <div class="courses-header">
+        <h1>Learning Adventures</h1>
+        <p>Choose a topic and begin your coding journey!</p>
+      </div>
+
+      <div class="course-filter">
+        <div class="filter-item active" data-filter="all">All Courses</div>
+        <div class="filter-item" data-filter="beginner">Beginner</div>
+        <div class="filter-item" data-filter="intermediate">Intermediate</div>
+        <div class="filter-item" data-filter="advanced">Advanced</div>
+      </div>
+
+      <div class="courses-grid">
+        <div class="course-card" data-category="beginner">
+          <div class="course-image">
+            <img
+              src="https://picsum.photos/seed/sorting/300/200"
+              alt="Sorting Adventure"
+            />
+            <div class="course-level">Beginner</div>
+          </div>
+          <div class="course-info">
+            <h3>Sorting Adventure</h3>
+            <p>
+              Join Captain Sort on a mission to organize the jumbled kingdom!
+            </p>
+            <div class="course-stats">
+              <span class="course-lessons">5 Lessons</span>
+              <span class="course-time">2 Hours</span>
+            </div>
+          </div>
+          <div class="course-actions">
+            <button
+              class="action-btn play-btn"
+              onclick="window.location.href='sortAdv.html'"
+            >
+              Play
+            </button>
+            <button class="action-btn learn-btn">Learn</button>
+          </div>
+        </div>
+
+        <div class="course-card" data-category="beginner">
+          <div class="course-image">
+            <img
+              src="https://picsum.photos/seed/variables/300/200"
+              alt="Variable Quest"
+            />
+            <div class="course-level">Beginner</div>
+          </div>
+          <div class="course-info">
+            <h3>Variable Quest</h3>
+            <p>Help Varia the Wizard store magical spells using variables!</p>
+            <div class="course-stats">
+              <span class="course-lessons">4 Lessons</span>
+              <span class="course-time">1.5 Hours</span>
+            </div>
+          </div>
+          <div class="course-actions">
+            <button class="action-btn play-btn">Play</button>
+            <button class="action-btn learn-btn">Learn</button>
+          </div>
+        </div>
+
+        <div class="course-card" data-category="intermediate">
+          <div class="course-image">
+            <img
+              src="https://picsum.photos/seed/loops/300/200"
+              alt="Loop Island"
+            />
+            <div class="course-level">Intermediate</div>
+          </div>
+          <div class="course-info">
+            <h3>Loop Island</h3>
+            <p>Explore the mysterious island where everything repeats!</p>
+            <div class="course-stats">
+              <span class="course-lessons">6 Lessons</span>
+              <span class="course-time">3 Hours</span>
+            </div>
+          </div>
+          <div class="course-actions">
+            <button class="action-btn play-btn">Play</button>
+            <button class="action-btn learn-btn">Learn</button>
+          </div>
+        </div>
+
+        <div class="course-card" data-category="intermediate">
+          <div class="course-image">
+            <img
+              src="https://picsum.photos/seed/functions/300/200"
+              alt="Function Factory"
+            />
+            <div class="course-level">Intermediate</div>
+          </div>
+          <div class="course-info">
+            <h3>Function Factory</h3>
+            <p>Build magical machines that transform inputs into outputs!</p>
+            <div class="course-stats">
+              <span class="course-lessons">7 Lessons</span>
+              <span class="course-time">3.5 Hours</span>
+            </div>
+          </div>
+          <div class="course-actions">
+            <button class="action-btn play-btn">Play</button>
+            <button class="action-btn learn-btn">Learn</button>
+          </div>
+        </div>
+
+        <div class="course-card" data-category="advanced">
+          <div class="course-image">
+            <img
+              src="https://picsum.photos/seed/recursion/300/200"
+              alt="Recursion Castle"
+            />
+            <div class="course-level">Advanced</div>
+          </div>
+          <div class="course-info">
+            <h3>Recursion Castle</h3>
+            <p>
+              Venture into the castle that contains smaller versions of itself!
+            </p>
+            <div class="course-stats">
+              <span class="course-lessons">8 Lessons</span>
+              <span class="course-time">4 Hours</span>
+            </div>
+          </div>
+          <div class="course-actions">
+            <button class="action-btn play-btn">Play</button>
+            <button class="action-btn learn-btn">Learn</button>
+          </div>
+        </div>
+
+        <div class="course-card" data-category="advanced">
+          <div class="course-image">
+            <img
+              src="https://picsum.photos/seed/algorithms/300/200"
+              alt="Algorithm Kingdom"
+            />
+            <div class="course-level">Advanced</div>
+          </div>
+          <div class="course-info">
+            <h3>Algorithm Kingdom</h3>
+            <p>
+              Master the art of solving problems efficiently in the ancient
+              kingdom!
+            </p>
+            <div class="course-stats">
+              <span class="course-lessons">10 Lessons</span>
+              <span class="course-time">5 Hours</span>
+            </div>
+          </div>
+          <div class="course-actions">
+            <button class="action-btn play-btn">Play</button>
+            <button class="action-btn learn-btn">Learn</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-modal" id="courseModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-header">
+          <h2 id="modalTitle">Sorting Adventure</h2>
+          <div class="modal-tabs">
+            <div class="modal-tab active" data-tab="story">Story</div>
+            <div class="modal-tab" data-tab="play">Play</div>
+            <div class="modal-tab" data-tab="learn">Learn</div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="tab-content active" id="storyTab">
+            <div class="story-container">
+              <img
+                src="https://picsum.photos/seed/story/600/300"
+                alt="Story Image"
+                class="story-image"
+              />
+              <div class="story-text">
+                <p>
+                  Once upon a time, in the Kingdom of Arrays, everything was in
+                  perfect order. Each number knew its place, and the kingdom
+                  prospered.
+                </p>
+                <p>
+                  But one day, the mischievous Chaos Wizard cast a spell that
+                  jumbled everything up! Numbers were scattered all around,
+                  causing great confusion.
+                </p>
+                <p>
+                  King Algo summoned Captain Sort, the kingdom's greatest hero,
+                  to restore order. Captain Sort knows many techniques to
+                  organize things, but needs your help to choose the right one!
+                </p>
+                <p>
+                  Join Captain Sort on this exciting adventure to learn
+                  different sorting methods and save the Kingdom of Arrays!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="playTab">
+            <div class="game-container">
+              <div class="game-instructions">
+                <h3>Bubble Sort Challenge</h3>
+                <p>
+                  Help Captain Sort organize these numbers using the Bubble Sort
+                  technique!
+                </p>
+                <p>
+                  Click on two adjacent numbers to swap them if they're out of
+                  order.
+                </p>
+              </div>
+              <div class="game-area">
+                <div class="number-container">
+                  <div class="number">7</div>
+                  <div class="number">2</div>
+                  <div class="number">5</div>
+                  <div class="number">1</div>
+                  <div class="number">9</div>
+                  <div class="number">3</div>
+                </div>
+                <div class="game-controls">
+                  <button class="game-btn" id="resetGame">Reset</button>
+                  <button class="game-btn" id="checkAnswer">Check</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="learnTab">
+            <div class="learn-container">
+              <h3>Bubble Sort Explained</h3>
+              <p>
+                Bubble Sort is a simple sorting algorithm that repeatedly steps
+                through the list, compares adjacent elements, and swaps them if
+                they are in the wrong order.
+              </p>
+              <div class="learn-animation">
+                <img
+                  src="https://picsum.photos/seed/animation/600/300"
+                  alt="Sorting Animation"
+                />
+              </div>
+              <div class="learn-steps">
+                <div class="step">
+                  <div class="step-number">1</div>
+                  <div class="step-text">
+                    Start at the beginning of the list
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-number">2</div>
+                  <div class="step-text">Compare the first two elements</div>
+                </div>
+                <div class="step">
+                  <div class="step-number">3</div>
+                  <div class="step-text">
+                    If the first is greater than the second, swap them
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-number">4</div>
+                  <div class="step-text">
+                    Move to the next pair of elements and repeat
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-number">5</div>
+                  <div class="step-text">
+                    Continue until the end of the list
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-number">6</div>
+                  <div class="step-text">
+                    Repeat the process until no more swaps are needed
+                  </div>
+                </div>
+              </div>
+              <div class="code-example">
+                <h4>Example Code:</h4>
+                <pre>
+function bubbleSort(arr) {
+    let len = arr.length;
+    let swapped;
+    
+    do {
+        swapped = false;
+        for (let i = 0; i < len - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+                // Swap elements
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                swapped = true;
+            }
+        }
+    } while (swapped);
+    
+    return arr;
+}</pre
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="lesson-progress">
+            <div class="progress-text">0/5 Lessons Completed</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: 0%"></div>
+            </div>
+          </div>
+          <button class="modal-btn" id="nextLesson">Start Lesson</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="navbar.js"></script>
+    <script src="courses.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorting Adventure with Nemo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+      }
+
+      body {
+        background-color: #e0f7fa;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        text-align: center;
+        padding: 20px;
+        background-color: #80deea;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .header h1 {
+        color: #006064;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        color: #00838f;
+      }
+
+      .game-container {
+        display: none;
+        background-color: #b2ebf2;
+        border-radius: 15px;
+        padding: 20px;
+        position: relative;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        min-height: 500px;
+      }
+
+      .level-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        background-color: #4dd0e1;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #006064;
+      }
+
+      .bubbles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+
+      .bubble {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        animation: float 8s infinite ease-in-out;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .story-container {
+        display: flex;
+        margin-bottom: 20px;
+        z-index: 1;
+        position: relative;
+      }
+
+      .nemo-container {
+        flex: 0 0 150px;
+        text-align: center;
+      }
+
+      .nemo {
+        width: 120px;
+        height: 120px;
+        background-color: #ff8a65;
+        border-radius: 60% 60% 60% 60% / 70% 70% 50% 50%;
+        position: relative;
+        margin: 0 auto;
+        border: 4px solid #ff5722;
+        animation: swim 3s infinite ease-in-out;
+      }
+
+      @keyframes swim {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .nemo::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 60%;
+        background-color: white;
+        border-radius: 50%;
+        top: 20%;
+        left: 10%;
+      }
+
+      .nemo::after {
+        content: "";
+        position: absolute;
+        width: 20%;
+        height: 20%;
+        background-color: black;
+        border-radius: 50%;
+        top: 30%;
+        left: 15%;
+      }
+
+      .fin {
+        position: absolute;
+        width: 30px;
+        height: 50px;
+        background-color: #ff8a65;
+        border: 3px solid #ff5722;
+        top: 30%;
+        right: -15px;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        transform: rotate(20deg);
+      }
+
+      .tail {
+        position: absolute;
+        width: 40px;
+        height: 60px;
+        background-color: #ff8a65;
+        border: 3px solid #ff5722;
+        top: 30%;
+        left: -30px;
+        border-radius: 40% 0 0 40%;
+        animation: tailWag 1.5s infinite ease-in-out;
+      }
+
+      @keyframes tailWag {
+        0%,
+        100% {
+          transform: rotate(-10deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+      }
+
+      .story-text {
+        flex: 1;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #4dd0e1;
+        margin-left: 20px;
+        position: relative;
+      }
+
+      .story-text::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        top: 30px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent white transparent transparent;
+      }
+
+      .animation-container {
+        background-color: #006064;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        min-height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+      }
+
+      .sorting-array {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+      }
+
+      .array-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: #00bcd4;
+        border: 2px solid #0097a7;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .array-item.highlight {
+        background-color: #ff5722;
+        transform: scale(1.1);
+      }
+
+      .array-item.sorted {
+        background-color: #4caf50;
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        z-index: 1;
+        position: relative;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        background-color: #0097a7;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #006064;
+        transform: scale(1.05);
+      }
+
+      .btn:disabled {
+        background-color: #b2ebf2;
+        color: #80deea;
+        cursor: not-allowed;
+      }
+
+      .start-btn {
+        padding: 15px 30px;
+        background-color: #005477;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .start-btn:hover {
+        background-color: #005477;
+        transform: scale(1.05);
+      }
+
+      .coding-section {
+        display: none;
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        position: relative;
+      }
+
+      .coding-section h3 {
+        color: #006064;
+        margin-bottom: 10px;
+      }
+
+      .code-editor {
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        font-family: monospace;
+        border: 1px solid #80deea;
+        border-radius: 5px;
+        resize: vertical;
+      }
+
+      .submit-code {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .submit-code:hover {
+        background-color: #388e3c;
+      }
+
+      .level-complete {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 188, 212, 0.9);
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        z-index: 10;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .level-complete h2 {
+        color: white;
+        margin-bottom: 20px;
+      }
+
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #f44336;
+        top: -10px;
+        animation: fall 3s linear forwards;
+      }
+
+      .roadmap {
+        background-color: #b2ebf2;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .roadmap h2 {
+        color: #006064;
+        margin-bottom: 15px;
+      }
+
+      .level-nodes {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .level-nodes::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        right: 5%;
+        height: 4px;
+        background-color: #80deea;
+        transform: translateY(-50%);
+        z-index: 0;
+      }
+
+      .level-node {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .node-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .node-label {
+        color: #006064;
+        font-weight: bold;
+        font-size: 14px;
+        text-align: center;
+        max-width: 120px;
+      }
+
+      .level-node.completed .node-circle {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .level-node.active .node-circle {
+        background-color: #ff5722;
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+      }
+
+      .level-node.locked .node-circle {
+        background-color: #b0bec5;
+        color: #78909c;
+      }
+
+      .level-node:hover:not(.locked) .node-circle {
+        transform: scale(1.15);
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Sorting Adventure with Nemo</h1>
+        <p>
+          Help Nemo learn sorting techniques and organize the underwater world!
+        </p>
+      </div>
+      <div class="roadmap" id="roadmap">
+        <h2>Adventure Roadmap</h2>
+        <div class="level-nodes">
+          <div class="level-node active" data-level="1">
+            <div class="node-circle">1</div>
+            <div class="node-label">Bubble Sort</div>
+          </div>
+          <div class="level-node locked" data-level="2">
+            <div class="node-circle">2</div>
+            <div class="node-label">Selection Sort</div>
+          </div>
+          <div class="level-node locked" data-level="3">
+            <div class="node-circle">3</div>
+            <div class="node-label">Insertion Sort</div>
+          </div>
+          <div class="level-node locked" data-level="4">
+            <div class="node-circle">4</div>
+            <div class="node-label">Merge Sort</div>
+          </div>
+        </div>
+      </div>
+      <button class="start-btn" id="startButton">Start Adventure</button>
+
+      <div class="game-container" id="gameContainer">
+        <div class="bubbles" id="bubbles"></div>
+
+        <div class="level-info">
+          <div class="level">
+            Level <span id="currentLevel">1</span>:
+            <span id="levelTitle">Bubble Sort</span>
+          </div>
+          <div class="timer" id="timer">00:00</div>
+        </div>
+
+        <div class="story-container">
+          <div class="nemo-container">
+            <div class="nemo">
+              <div class="fin"></div>
+              <div class="tail"></div>
+            </div>
+          </div>
+          <div class="story-text" id="storyText">
+            Hi, I'm Nemo! Today I need to help organize the seashells on the
+            ocean floor. They're all mixed up, and I need to sort them by size.
+            Can you help me learn how to sort them?
+          </div>
+        </div>
+
+        <div class="animation-container">
+          <div class="sorting-array" id="sortingArray"></div>
+        </div>
+
+        <div class="navigation">
+          <button class="btn" id="previousBtn" disabled>Previous</button>
+          <button class="btn" id="nextBtn">Next Step</button>
+        </div>
+
+        <div class="coding-section" id="codingSection">
+          <h3>Try coding this sorting algorithm yourself!</h3>
+          <textarea
+            class="code-editor"
+            id="codeEditor"
+            placeholder="// Write your sorting algorithm here
+function mySort(arr) {
+  // Your code here
+  return arr;
+}"></textarea>
+          <button class="submit-code" id="submitCode">Test My Code</button>
+          <div id="codeResult"></div>
+        </div>
+
+        <div class="level-complete" id="levelComplete">
+          <h2>Level Complete!</h2>
+          <p>Great job helping Nemo sort the seashells!</p>
+          <button class="btn" id="nextLevelBtn">Next Level</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Game state
+      const gameState = {
+        currentLevel: 1,
+        maxLevel: 4,
+        currentStep: 0,
+        startTime: null,
+        codeUnlockTime: null,
+        levels: [
+          {
+            title: "Bubble Sort",
+            description: "The Bubble Sort Journey",
+            steps: [
+              "Hi, I'm Nemo! Today I need to help organize the seashells on the ocean floor. They're all mixed up, and I need to sort them by size. Can you help me learn how to sort them?",
+              "I heard about something called 'Bubble Sort'. It's like when bubbles rise up in the water - the bigger ones rise faster!",
+              "With Bubble Sort, we compare two adjacent seashells, and if they're in the wrong order, we swap them.",
+              "Let's try it! We'll go through the whole collection, comparing each pair of seashells.",
+              "We keep doing this until no more swaps are needed, which means everything is sorted!",
+              "Bubble Sort is easy to understand but can be slow for large collections. It has a time complexity of O(n²) in the worst case.",
+            ],
+            animation: bubbleSortAnimation,
+            code: `function bubbleSort(arr) {
+        const n = arr.length;
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+              // Swap arr[j] and arr[j+1]
+              [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+            }
+          }
+        }
+        return arr;
+      }`,
+          },
+          {
+            title: "Selection Sort",
+            description: "Selection Sort Adventure",
+            steps: [
+              "Great job with Bubble Sort! Now I need to organize starfish by their number of arms. Let's try a different method called Selection Sort!",
+              "With Selection Sort, we first find the smallest starfish in the entire collection.",
+              "Then we put that smallest starfish at the beginning of our sorted collection.",
+              "Next, we find the second smallest starfish and put it in the second position.",
+              "We keep doing this until all starfish are sorted!",
+              "Selection Sort always takes the same amount of time regardless of how the collection is arranged. It has a time complexity of O(n²), but it makes fewer swaps than Bubble Sort!",
+            ],
+            animation: selectionSortAnimation,
+            code: `function selectionSort(arr) {
+        const n = arr.length;
+        for (let i = 0; i < n; i++) {
+          let minIndex = i;
+          for (let j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+              minIndex = j;
+            }
+          }
+          if (minIndex !== i) {
+            // Swap arr[i] and arr[minIndex]
+            [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+          }
+        }
+        return arr;
+      }`,
+          },
+          {
+            title: "Insertion Sort",
+            description: "Insertion Sort Journey",
+            steps: [
+              "Now I need to sort my collection of colorful coral pieces. Let's try Insertion Sort!",
+              "Insertion Sort works like sorting a hand of playing cards. We start with one card and then insert each new card into its correct position.",
+              "First, we assume the first element is already sorted.",
+              "Then we take the next element and insert it at the right position in our sorted part.",
+              "We continue this process until all elements are sorted!",
+              "Insertion Sort has a time complexity of O(n²) in the worst case, but it's efficient for small datasets and works well when the array is already partially sorted!",
+            ],
+            animation: insertionSortAnimation,
+            code: `function insertionSort(arr) {
+        const n = arr.length;
+        for (let i = 1; i < n; i++) {
+          let current = arr[i];
+          let j = i - 1;
+          while (j >= 0 && arr[j] > current) {
+            arr[j + 1] = arr[j];
+            j--;
+          }
+          arr[j + 1] = current;
+        }
+        return arr;
+      }`,
+          },
+          {
+            title: "Merge Sort",
+            description: "Merge Sort Adventure",
+            steps: [
+              "For our final challenge, I need to organize all the fish in the reef by size. This is a big job, so let's try Merge Sort!",
+              "Merge Sort uses a 'divide and conquer' strategy. First, we split our collection into smaller groups.",
+              "We keep dividing until we have individual elements, which are already sorted on their own.",
+              "Then we merge these small sorted groups back together, keeping them sorted as we go.",
+              "This process continues until we have merged everything back into one completely sorted collection!",
+              "Merge Sort is much faster than our previous sorts with a time complexity of O(n log n), but it needs extra space to work!",
+            ],
+            animation: mergeSortAnimation,
+            code: `function mergeSort(arr) {
+        if (arr.length <= 1) {
+          return arr;
+        }
+
+        const mid = Math.floor(arr.length / 2);
+        const left = mergeSort(arr.slice(0, mid));
+        const right = mergeSort(arr.slice(mid));
+
+        return merge(left, right);
+      }
+
+      function merge(left, right) {
+        let result = [];
+        let leftIndex = 0;
+        let rightIndex = 0;
+
+        while (leftIndex < left.length && rightIndex < right.length) {
+          if (left[leftIndex] < right[rightIndex]) {
+            result.push(left[leftIndex]);
+            leftIndex++;
+          } else {
+            result.push(right[rightIndex]);
+            rightIndex++;
+          }
+        }
+
+        return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+      }`,
+          },
+        ],
+      };
+
+      // DOM Elements
+      const startButton = document.getElementById("startButton");
+      const gameContainer = document.getElementById("gameContainer");
+      const currentLevelElement = document.getElementById("currentLevel");
+      const levelTitleElement = document.getElementById("levelTitle");
+      const storyTextElement = document.getElementById("storyText");
+      const sortingArrayElement = document.getElementById("sortingArray");
+      const previousBtn = document.getElementById("previousBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const codingSection = document.getElementById("codingSection");
+      const codeEditor = document.getElementById("codeEditor");
+      const submitCode = document.getElementById("submitCode");
+      const codeResult = document.getElementById("codeResult");
+      const levelComplete = document.getElementById("levelComplete");
+      const nextLevelBtn = document.getElementById("nextLevelBtn");
+      const timerElement = document.getElementById("timer");
+      const bubblesContainer = document.getElementById("bubbles");
+
+      // Initialize bubbles
+      function createBubbles() {
+        bubblesContainer.innerHTML = "";
+        const bubbleCount = 15;
+
+        for (let i = 0; i < bubbleCount; i++) {
+          const bubble = document.createElement("div");
+          bubble.classList.add("bubble");
+
+          // Random size between 10px and 30px
+          const size = Math.floor(Math.random() * 20) + 10;
+          bubble.style.width = `${size}px`;
+          bubble.style.height = `${size}px`;
+
+          // Random position
+          const left = Math.floor(Math.random() * 100);
+          const bottom = Math.floor(Math.random() * 50) - 50;
+          bubble.style.left = `${left}%`;
+          bubble.style.bottom = `${bottom}%`;
+
+          // Random delay
+          const delay = Math.random() * 15;
+          bubble.style.animationDelay = `${delay}s`;
+
+          // Random duration
+          const duration = Math.random() * 10 + 8;
+          bubble.style.animationDuration = `${duration}s`;
+
+          bubblesContainer.appendChild(bubble);
+        }
+      }
+
+      // Timer function
+      function startTimer() {
+        gameState.startTime = new Date();
+        gameState.codeUnlockTime = new Date(
+          gameState.startTime.getTime() + 10 * 60000
+        ); // 10 minutes
+        // For testing purposes, you can reduce this to 10 seconds:
+        // gameState.codeUnlockTime = new Date(gameState.startTime.getTime() + 10 * 1000);
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+      }
+
+      function updateTimer() {
+        const now = new Date();
+        const elapsed = Math.floor((now - gameState.startTime) / 1000);
+        const minutes = Math.floor(elapsed / 60);
+        const seconds = elapsed % 60;
+
+        timerElement.textContent = `${minutes
+          .toString()
+          .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+        // Check if code section should be unlocked
+        if (
+          now >= gameState.codeUnlockTime &&
+          codingSection.style.display === "none"
+        ) {
+          codingSection.style.display = "block";
+          codeEditor.value = gameState.levels[gameState.currentLevel - 1].code;
+        }
+      }
+
+      // Initialize or reset the array for sorting animations
+      function initSortingArray() {
+        sortingArrayElement.innerHTML = "";
+
+        // Create a shuffled array from 1 to 7
+        const values = [1, 2, 3, 4, 5, 6, 7];
+        shuffleArray(values);
+
+        values.forEach((value) => {
+          const item = document.createElement("div");
+          item.classList.add("array-item");
+          item.textContent = value;
+          item.style.height = `${value * 10 + 20}px`;
+          sortingArrayElement.appendChild(item);
+        });
+      }
+
+      // Fisher-Yates shuffle algorithm
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+
+      // Sorting Animations
+      function bubbleSortAnimation() {
+        const arrayItems = Array.from(sortingArrayElement.children);
+        let values = arrayItems.map((item) => parseInt(item.textContent));
+        let swapped;
+        let i = 0;
+        let j = 0;
+        let compareCount = 0;
+        let animationInterval;
+
+        animationInterval = setInterval(() => {
+          // Reset previous highlights
+          arrayItems.forEach((item) => item.classList.remove("highlight"));
+
+          if (i < values.length) {
+            swapped = false;
+
+            if (j < values.length - i - 1) {
+              // Highlight current comparison
+              arrayItems[j].classList.add("highlight");
+              arrayItems[j + 1].classList.add("highlight");
+
+              if (values[j] > values[j + 1]) {
+                // Swap values
+                [values[j], values[j + 1]] = [values[j + 1], values[j]];
+                arrayItems[j].textContent = values[j];
+                arrayItems[j + 1].textContent = values[j + 1];
+                arrayItems[j].style.height = `${values[j] * 10 + 20}px`;
+                arrayItems[j + 1].style.height = `${values[j + 1] * 10 + 20}px`;
+                swapped = true;
+              }
+              j++;
+            } else {
+              // Mark the last element of this pass as sorted
+              arrayItems[values.length - i - 1].classList.add("sorted");
+              i++;
+              j = 0;
+            }
+          } else {
+            // Mark any remaining elements as sorted
+            arrayItems.forEach((item) => {
+              if (!item.classList.contains("sorted")) {
+                item.classList.add("sorted");
+              }
+            });
+            clearInterval(animationInterval);
+          }
+        }, 500);
+      }
+
+      function selectionSortAnimation() {
+        const arrayItems = Array.from(sortingArrayElement.children);
+        let values = arrayItems.map((item) => parseInt(item.textContent));
+        let i = 0;
+        let j = 0;
+        let minIndex = 0;
+        let animationInterval;
+        let state = "finding"; // States: finding, swapping
+
+        animationInterval = setInterval(() => {
+          // Reset previous highlights
+          arrayItems.forEach((item) => item.classList.remove("highlight"));
+
+          if (i < values.length - 1) {
+            if (state === "finding") {
+              if (j === i) {
+                minIndex = i;
+                j++;
+              } else if (j < values.length) {
+                arrayItems[j].classList.add("highlight");
+                arrayItems[minIndex].classList.add("highlight");
+
+                if (values[j] < values[minIndex]) {
+                  minIndex = j;
+                }
+                j++;
+              } else {
+                state = "swapping";
+              }
+            } else if (state === "swapping") {
+              if (minIndex !== i) {
+                // Swap values
+                [values[i], values[minIndex]] = [values[minIndex], values[i]];
+                arrayItems[i].textContent = values[i];
+                arrayItems[minIndex].textContent = values[minIndex];
+                arrayItems[i].style.height = `${values[i] * 10 + 20}px`;
+                arrayItems[minIndex].style.height = `${
+                  values[minIndex] * 10 + 20
+                }px`;
+              }
+
+              // Mark this position as sorted
+              arrayItems[i].classList.add("sorted");
+              i++;
+              j = i;
+              state = "finding";
+            }
+          } else {
+            // Mark the last element as sorted
+            arrayItems[values.length - 1].classList.add("sorted");
+            clearInterval(animationInterval);
+          }
+        }, 500);
+      }
+
+      function insertionSortAnimation() {
+        const arrayItems = Array.from(sortingArrayElement.children);
+        let values = arrayItems.map((item) => parseInt(item.textContent));
+        let i = 1;
+        let j;
+        let current;
+        let state = "start-new-item"; // States: start-new-item, comparing, inserting
+        let animationInterval;
+
+        // Mark the first element as sorted
+        arrayItems[0].classList.add("sorted");
+
+        animationInterval = setInterval(() => {
+          // Reset previous highlights
+          arrayItems.forEach((item) => {
+            if (!item.classList.contains("sorted")) {
+              item.classList.remove("highlight");
+            }
+          });
+
+          if (i < values.length) {
+            if (state === "start-new-item") {
+              current = values[i];
+              j = i - 1;
+              arrayItems[i].classList.add("highlight");
+              state = "comparing";
+            } else if (state === "comparing") {
+              if (j >= 0 && values[j] > current) {
+                // Move element to the right
+                values[j + 1] = values[j];
+                arrayItems[j + 1].textContent = values[j];
+                arrayItems[j + 1].style.height = `${values[j] * 10 + 20}px`;
+                arrayItems[j].classList.add("highlight");
+                j--;
+              } else {
+                state = "inserting";
+              }
+            } else if (state === "inserting") {
+              // Place current at correct position
+              values[j + 1] = current;
+              arrayItems[j + 1].textContent = current;
+              arrayItems[j + 1].style.height = `${current * 10 + 20}px`;
+              arrayItems[j + 1].classList.add("sorted");
+
+              i++;
+              state = "start-new-item";
+            }
+          } else {
+            clearInterval(animationInterval);
+          }
+        }, 500);
+      }
+
+      function mergeSortAnimation() {
+        // This is a simplified visualization of merge sort
+        // In a real implementation, we would show the divide and conquer steps
+
+        const arrayItems = Array.from(sortingArrayElement.children);
+        let values = arrayItems.map((item) => parseInt(item.textContent));
+
+        const sortedValues = [...values].sort((a, b) => a - b);
+        let index = 0;
+        let animationInterval;
+
+        // First highlight all to show they're being processed
+        arrayItems.forEach((item) => item.classList.add("highlight"));
+
+        setTimeout(() => {
+          // Clear highlights
+          arrayItems.forEach((item) => item.classList.remove("highlight"));
+
+          animationInterval = setInterval(() => {
+            if (index < values.length) {
+              arrayItems[index].textContent = sortedValues[index];
+              arrayItems[index].style.height = `${
+                sortedValues[index] * 10 + 20
+              }px`;
+              arrayItems[index].classList.add("sorted");
+              index++;
+            } else {
+              clearInterval(animationInterval);
+            }
+          }, 500);
+        }, 1500);
+      }
+
+      // Define nextBtn click handler separately so we can remove/add it
+      function handleNextStep() {
+        const currentLevel = gameState.levels[gameState.currentLevel - 1];
+
+        if (gameState.currentStep < currentLevel.steps.length - 1) {
+          gameState.currentStep++;
+          updateStoryText();
+          updateButtons();
+        } else {
+          // Start animation on the last step
+          if (gameState.currentStep === currentLevel.steps.length - 1) {
+            initSortingArray();
+            currentLevel.animation();
+
+            // Show coding section after 10 minutes (handled by timer)
+            // For demo purposes, we'll also enable a button to complete level
+            nextBtn.textContent = "Complete Level";
+            nextBtn.removeEventListener("click", handleNextStep);
+            nextBtn.addEventListener("click", showLevelComplete);
+          }
+        }
+      }
+
+      nextBtn.addEventListener("click", handleNextStep);
+
+      function showLevelComplete() {
+        levelComplete.style.display = "block";
+        createConfetti();
+      }
+
+      function createConfetti() {
+        // Clear any existing confetti first
+        const existingConfetti = levelComplete.querySelectorAll(".confetti");
+        existingConfetti.forEach((conf) => conf.remove());
+
+        for (let i = 0; i < 50; i++) {
+          const confetti = document.createElement("div");
+          confetti.classList.add("confetti");
+
+          // Random position
+          confetti.style.left = `${Math.random() * 100}%`;
+
+          // Random color
+          const colors = [
+            "#f44336",
+            "#e91e63",
+            "#9c27b0",
+            "#673ab7",
+            "#3f51b5",
+            "#2196f3",
+            "#03a9f4",
+            "#00bcd4",
+          ];
+          confetti.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+
+          // Random size
+          const size = Math.random() * 10 + 5;
+          confetti.style.width = `${size}px`;
+          confetti.style.height = `${size}px`;
+
+          // Random rotation
+          confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+          // Random animation duration
+          confetti.style.animationDuration = `${Math.random() * 2 + 2}s`;
+
+          // Random delay
+          confetti.style.animationDelay = `${Math.random()}s`;
+
+          levelComplete.appendChild(confetti);
+        }
+      }
+
+      nextLevelBtn.addEventListener("click", function () {
+        levelComplete.style.display = "none";
+
+        if (gameState.currentLevel < gameState.maxLevel) {
+          // Explicitly set to the next sequential level
+          const nextLevel = gameState.currentLevel + 1;
+          gameState.currentLevel = nextLevel;
+          gameState.progress.currentLevel = nextLevel;
+          saveProgress();
+          loadLevel(nextLevel);
+        } else {
+          // Final completion
+          levelComplete.querySelector("h2").textContent = "Adventure Complete!";
+          levelComplete.querySelector("p").textContent =
+            "Congratulations! You've mastered all sorting techniques!";
+          nextLevelBtn.style.display = "none";
+        }
+      });
+
+      submitCode.addEventListener("click", () => {
+        const userCode = codeEditor.value;
+        const testArray = [5, 3, 7, 1, 4, 6, 2];
+        let result;
+
+        try {
+          // Evaluate user code and run it (careful with this in production!)
+          const testFunction = new Function(`
+                  ${userCode}
+                  return mySort([5, 3, 7, 1, 4, 6, 2]);
+              `);
+
+          result = testFunction();
+
+          // Check if result is correctly sorted
+          let sorted = true;
+          for (let i = 1; i < result.length; i++) {
+            if (result[i] < result[i - 1]) {
+              sorted = false;
+              break;
+            }
+          }
+
+          if (sorted) {
+            codeResult.innerHTML = `<p style="color: #4caf50;">Great job! Your algorithm sorted the array correctly: [${result}]</p>`;
+            // Show the complete level button if it's not already displayed
+            nextBtn.textContent = "Complete Level";
+            nextBtn.removeEventListener("click", handleNextStep);
+            nextBtn.addEventListener("click", showLevelComplete);
+          } else {
+            codeResult.innerHTML = `<p style="color: #f44336;">Your algorithm didn't sort correctly. Result: [${result}]</p>`;
+          }
+        } catch (error) {
+          codeResult.innerHTML = `<p style="color: #f44336;">Error: ${error.message}</p>`;
+        }
+      });
+
+      // Load a specific level
+      function loadLevel(levelNumber) {
+        gameState.currentLevel = levelNumber;
+        gameState.currentStep = 0;
+
+        const currentLevel = gameState.levels[levelNumber - 1];
+
+        // Update UI
+        currentLevelElement.textContent = levelNumber;
+        levelTitleElement.textContent = currentLevel.title;
+
+        // Reset buttons
+        nextBtn.textContent = "Next Step";
+        nextBtn.removeEventListener("click", showLevelComplete);
+        nextBtn.removeEventListener("click", handleNextStep);
+        nextBtn.addEventListener("click", handleNextStep);
+
+        // Hide coding section
+        codingSection.style.display = "none";
+
+        // Update story text
+        updateStoryText();
+        updateButtons();
+
+        // Reset timer for code unlock
+        gameState.codeUnlockTime = new Date(new Date().getTime() + 10 * 60000); // 10 minutes from now
+        // For testing purposes, you can reduce this to 10 seconds:
+        // gameState.codeUnlockTime = new Date(new Date().getTime() + 10 * 1000);
+
+        // Reset code editor
+        codeEditor.value = "";
+        codeResult.innerHTML = "";
+
+        // Update roadmap to reflect current level
+        updateRoadmap();
+
+        // Reset the animation container
+        sortingArrayElement.innerHTML = "";
+      }
+
+      // Update story text and animation based on current step
+      function updateStoryText() {
+        const currentLevel = gameState.levels[gameState.currentLevel - 1];
+        storyTextElement.textContent =
+          currentLevel.steps[gameState.currentStep];
+      }
+
+      // Update button states
+      function updateButtons() {
+        const currentLevel = gameState.levels[gameState.currentLevel - 1];
+
+        previousBtn.disabled = gameState.currentStep === 0;
+
+        if (gameState.currentStep < currentLevel.steps.length - 1) {
+          nextBtn.textContent = "Next Step";
+        } else {
+          nextBtn.textContent = "Start Animation";
+        }
+      }
+      function rebindNextButtonListeners() {
+        nextBtn.removeEventListener("click", handleNextStep);
+        nextBtn.removeEventListener("click", showLevelComplete);
+        nextBtn.addEventListener("click", handleNextStep);
+        nextBtn.textContent = "Next Step";
+      }
+      // Initialize the game when the page loads
+      document.addEventListener("DOMContentLoaded", createBubbles);
+
+      gameState.progress = JSON.parse(
+        localStorage.getItem("sortingAdventureProgress")
+      ) || {
+        highestLevelCompleted: 0,
+        currentLevel: 1,
+      };
+
+      // Function to update the roadmap based on saved progress
+      function updateRoadmap() {
+        const levelNodes = document.querySelectorAll(".level-node");
+
+        levelNodes.forEach((node) => {
+          const level = parseInt(node.getAttribute("data-level"));
+
+          // Reset classes
+          node.classList.remove("completed", "active", "locked");
+
+          if (level <= gameState.progress.highestLevelCompleted) {
+            node.classList.add("completed");
+          } else if (level === gameState.progress.currentLevel) {
+            node.classList.add("active");
+          } else {
+            node.classList.add("locked");
+          }
+        });
+      }
+
+      // Function to save progress to localStorage
+      function saveProgress() {
+        localStorage.setItem(
+          "sortingAdventureProgress",
+          JSON.stringify(gameState.progress)
+        );
+        updateRoadmap();
+      }
+
+      function debugGameState() {
+        console.log("Current Level:", gameState.currentLevel);
+        console.log(
+          "Highest Level Completed:",
+          gameState.progress.highestLevelCompleted
+        );
+        console.log("Current Progress Level:", gameState.progress.currentLevel);
+      }
+
+      // Update the showLevelComplete function to save progress
+      function showLevelComplete() {
+        levelComplete.style.display = "block";
+        createConfetti();
+
+        // Update progress if this is a new highest level
+        if (gameState.currentLevel > gameState.progress.highestLevelCompleted) {
+          gameState.progress.highestLevelCompleted = gameState.currentLevel;
+          saveProgress();
+        }
+
+        debugGameState(); // Add debugging
+      }
+
+      // Add click handlers to roadmap nodes
+      document.querySelectorAll(".level-node").forEach((node) => {
+        node.addEventListener("click", () => {
+          const level = parseInt(node.getAttribute("data-level"));
+
+          // Only allow clicking on completed levels or the next unlocked level
+          if (level <= gameState.progress.highestLevelCompleted + 1) {
+            startButton.style.display = "none";
+            gameContainer.style.display = "block";
+            gameState.currentLevel = level;
+            gameState.progress.currentLevel = level;
+            saveProgress();
+            loadLevel(level);
+            startTimer();
+            createBubbles();
+          }
+        });
+      });
+
+      startButton.addEventListener("click", function () {
+        startButton.style.display = "none";
+        gameContainer.style.display = "block";
+
+        // Always start from level 1 when clicking start button
+        gameState.currentLevel = 1;
+        gameState.progress.currentLevel = 1;
+        loadLevel(1);
+        startTimer();
+        createBubbles();
+      });
+
+      function resetProgress() {
+        gameState.currentLevel = 1;
+        gameState.progress = {
+          highestLevelCompleted: 0,
+          currentLevel: 1,
+        };
+        saveProgress();
+        loadLevel(1);
+        updateRoadmap();
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        const header = document.querySelector(".header");
+        const resetButton = document.createElement("button");
+        resetButton.textContent = "Reset Progress";
+        resetButton.classList.add("btn");
+        resetButton.style.marginTop = "10px";
+        resetButton.style.backgroundColor = "#005477";
+        resetButton.addEventListener("click", function () {
+          resetProgress();
+          if (gameContainer.style.display === "block") {
+            // If game is already running, reset everything
+            startButton.style.display = "block";
+            gameContainer.style.display = "none";
+          }
+        });
+        header.appendChild(resetButton);
+
+        // Initialize with existing functions
+        createBubbles();
+        updateRoadmap();
+      });
+      // Initialize the roadmap when the page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        createBubbles();
+        updateRoadmap();
+      });
+    </script>
+  </body>
+</html>

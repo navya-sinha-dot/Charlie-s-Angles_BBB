@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="problems.css" />
+    <title>Problems - CodeKids</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">CodeKids</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="daily-problem.html">Daily Problem</a>
+        <a href="courses.html">Courses</a>
+        <a href="problems.html" class="active">Problems</a>
+        <a href="contests.html">Contests</a>
+        <a href="community.html">Community</a>
+        <a href="#" class="profile-link"
+          ><img
+            src="https://picsum.photos/seed/user/40/40"
+            alt="Profile"
+            class="profile-pic"
+        /></a>
+      </div>
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
+
+    <div class="problems-container">
+      <div class="problems-header">
+        <h1>Coding Challenges</h1>
+        <p>Solve problems to earn coins and power-ups!</p>
+      </div>
+
+      <div class="problems-filter-container">
+        <div class="search-container">
+          <input
+            type="text"
+            id="problem-search"
+            placeholder="Search problems..." />
+          <button id="search-btn">Search</button>
+        </div>
+
+        <div class="filter-container">
+          <div class="filter-group">
+            <label>Difficulty:</label>
+            <select id="difficulty-filter">
+              <option value="all">All</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Topic:</label>
+            <select id="topic-filter">
+              <option value="all">All</option>
+              <option value="arrays">Arrays</option>
+              <option value="strings">Strings</option>
+              <option value="loops">Loops</option>
+              <option value="math">Math</option>
+              <option value="logic">Logic</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Status:</label>
+            <select id="status-filter">
+              <option value="all">All</option>
+              <option value="solved">Solved</option>
+              <option value="unsolved">Unsolved</option>
+              <option value="attempted">Attempted</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="problems-list">
+        <div
+          class="problem-card"
+          data-difficulty="easy"
+          data-topic="arrays"
+          data-status="solved">
+          <div class="problem-status solved">
+            <span class="status-icon">✓</span>
+          </div>
+          <div class="problem-info">
+            <h3>Treasure Hunt</h3>
+            <p>Find the hidden treasure in a 2D grid by following the clues.</p>
+            <div class="problem-tags">
+              <span class="tag difficulty-easy">Easy</span>
+              <span class="tag topic-arrays">Arrays</span>
+            </div>
+          </div>
+          <div class="problem-stats">
+            <div class="stat">
+              <span class="stat-icon">👍</span>
+              <span class="stat-value">89%</span>
+            </div>
+            <div class="stat">
+              <span class="stat-icon">🏆</span>
+              <span class="stat-value">50</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="problem-card"
+          data-difficulty="medium"
+          data-topic="strings"
+          data-status="attempted">
+          <div class="problem-status attempted">
+            <span class="status-icon">↻</span>
+          </div>
+          <div class="problem-info">
+            <h3>Secret Code Maker</h3>
+            <p>Create and decode secret messages using a special cipher.</p>
+            <div class="problem-tags">
+              <span class="tag difficulty-medium">Medium</span>
+              <span class="tag topic-strings">Strings</span>
+            </div>
+          </div>
+          <div class="problem-stats">
+            <div class="stat">
+              <span class="stat-icon">👍</span>
+              <span class="stat-value">75%</span>
+            </div>
+            <div class="stat">
+              <span class="stat-icon">🏆</span>
+              <span class="stat-value">75</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="problem-card"
+          data-difficulty="hard"
+          data-topic="logic"
+          data-status="unsolved">
+          <div class="problem-status unsolved">
+            <span class="status-icon">!</span>
+          </div>
+          <div class="problem-info">
+            <h3>Dragon's Puzzle</h3>
+            <p>
+              Help the dragon organize its treasure collection using logical
+              thinking.
+            </p>
+            <div class="problem-tags">
+              <span class="tag difficulty-hard">Hard</span>
+              <span class="tag topic-logic">Logic</span>
+            </div>
+          </div>
+          <div class="problem-stats">
+            <div class="stat">
+              <span class="stat-icon">👍</span>
+              <span class="stat-value">62%</span>
+            </div>
+            <div class="stat">
+              <span class="stat-icon">🏆</span>
+              <span class="stat-value">100</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="problem-card"
+          data-difficulty="easy"
+          data-topic="loops"
+          data-status="unsolved">
+          <div class="problem-status unsolved">
+            <span class="status-icon">!</span>
+          </div>
+          <div class="problem-info">
+            <h3>Star Pattern</h3>
+            <p>Create beautiful star patterns using loops and creativity.</p>
+            <div class="problem-tags">
+              <span class="tag difficulty-easy">Easy</span>
+              <span class="tag topic-loops">Loops</span>
+            </div>
+          </div>
+          <div class="problem-stats">
+            <div class="stat">
+              <span class="stat-icon">👍</span>
+              <span class="stat-value">92%</span>
+            </div>
+            <div class="stat">
+              <span class="stat-icon">🏆</span>
+              <span class="stat-value">40</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="problem-card"
+          data-difficulty="medium"
+          data-topic="math"
+          data-status="unsolved">
+          <div class="problem-status unsolved">
+            <span class="status-icon">!</span>
+          </div>
+          <div class="problem-info">
+            <h3>Magical Sequences</h3>
+            <p>
+              Discover the pattern in magical number sequences and predict the
+              next elements.
+            </p>
+            <div class="problem-tags">
+              <span class="tag difficulty-medium">Medium</span>
+              <span class="tag topic-math">Math</span>
+            </div>
+          </div>
+          <div class="problem-stats">
+            <div class="stat">
+              <span class="stat-icon">👍</span>
+              <span class="stat-value">83%</span>
+            </div>
+            <div class="stat">
+              <span class="stat-icon">🏆</span>
+              <span class="stat-value">65</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="problem-card"
+          data-difficulty="medium"
+          data-topic="arrays"
+          data-status="solved">
+          <div class="problem-status solved">
+            <span class="status-icon">✓</span>
+          </div>
+          <div class="problem-info">
+            <h3>Robot Navigation</h3>
+            <p>
+              Program a robot to navigate through a maze and find the shortest
+              path.
+            </p>
+            <div class="problem-tags">
+              <span class="tag difficulty-medium">Medium</span>
+              <span class="tag topic-arrays">Arrays</span>
+            </div>
+          </div>
+          <div class="problem-stats">
+            <div class="stat">
+              <span class="stat-icon">👍</span>
+              <span class="stat-value">78%</span>
+            </div>
+            <div class="stat">
+              <span class="stat-icon">🏆</span>
+              <span class="stat-value">70</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <button class="pagination-btn" disabled>Previous</button>
+        <div class="page-numbers">
+          <span class="page-number active">1</span>
+          <span class="page-number">2</span>
+          <span class="page-number">3</span>
+          <span class="page-number">...</span>
+          <span class="page-number">10</span>
+        </div>
+        <button class="pagination-btn">Next</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="navbar.js"></script>
+    <script src="problems.js"></script>
+  </body>
+</html>

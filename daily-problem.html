@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="problem.css" />
+    <title>Daily Problem - CodeKids</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">CodeKids</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="daily-problem.html" class="active">Daily Problem</a>
+        <a href="courses.html">Courses</a>
+        <a href="problems.html">Problems</a>
+        <a href="contests.html">Contests</a>
+        <a href="community.html">Community</a>
+        <a href="#" class="profile-link"
+          ><img
+            src="https://picsum.photos/seed/user/40/40"
+            alt="Profile"
+            class="profile-pic"
+        /></a>
+      </div>
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
+
+    <div class="problem-container">
+      <div class="problem-header">
+        <div class="problem-title">
+          <h1>Daily Challenge: The Magic Treasure</h1>
+          <div class="problem-difficulty easy">Easy</div>
+        </div>
+        <div class="problem-timer">
+          <div class="timer-icon">⏰</div>
+          <div class="timer-display" id="timer">30:00</div>
+        </div>
+      </div>
+
+      <div class="problem-content">
+        <div class="problem-description">
+          <h2>Problem Description</h2>
+          <p>
+            You are on a treasure hunt! To find the magic treasure, you need to
+            count all the possible combinations of keys that can open the
+            treasure chest.
+          </p>
+          <p>
+            The treasure chest needs exactly
+            <strong>3 different colored keys</strong> to open. There are 5
+            colored keys available: Red, Blue, Green, Yellow, and Purple.
+          </p>
+          <p>
+            Write a function <code>countCombinations()</code> that returns the
+            number of different ways to select 3 keys from the 5 available keys.
+          </p>
+
+          <h3>Example:</h3>
+          <pre class="example-code">
+// One possible combination is: [Red, Blue, Green]
+// Another possible combination is: [Red, Blue, Yellow]
+// And so on...
+
+// Your function should return the total number of possible combinations
+</pre
+          >
+
+          <h3>Constraints:</h3>
+          <ul>
+            <li>The order of the keys doesn't matter</li>
+            <li>Each key can only be used once</li>
+          </ul>
+        </div>
+
+        <div class="code-editor-container">
+          <div class="editor-header">
+            <div class="language-selector">
+              <select id="language-select">
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+              </select>
+            </div>
+            <div class="editor-actions">
+              <button class="action-btn" id="run-btn">Run Code</button>
+              <button class="action-btn" id="submit-btn">Submit</button>
+            </div>
+          </div>
+          <div class="code-editor">
+            <pre id="editor">
+function countCombinations() {
+    // Write your code here
+    
+    return 0;
+}</pre
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="problem-footer">
+        <div class="test-cases">
+          <h3>Test Cases</h3>
+          <div class="test-case">
+            <div class="test-case-header">
+              <div class="test-case-title">Test Case 1</div>
+              <div class="test-case-status" id="test-case-1-status">
+                Not Run
+              </div>
+            </div>
+            <div class="test-case-details">
+              <div class="test-case-input">Input: No input needed</div>
+              <div class="test-case-expected">Expected Output: 10</div>
+              <div class="test-case-actual" id="test-case-1-actual">
+                Your Output: -
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="output-terminal">
+          <div class="terminal-header">
+            <h3>Output</h3>
+            <button id="clear-terminal">Clear</button>
+          </div>
+          <div class="terminal-content" id="terminal-output">
+            // Your code output will appear here
+          </div>
+        </div>
+
+        <div class="problem-info">
+          <div class="topic-tags">
+            <h3>Topics</h3>
+            <div class="tags">
+              <span class="tag">Combinatorics</span>
+              <span class="tag">Math</span>
+              <span class="tag">Counting</span>
+            </div>
+          </div>
+          <div class="similar-problems">
+            <h3>Similar Problems</h3>
+            <ul>
+              <li><a href="#">The Wizard's Spell Combinations</a></li>
+              <li><a href="#">Dragon's Color Patterns</a></li>
+              <li><a href="#">Magical Team Selection</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="problem-comments">
+          <h3>Comments</h3>
+          <div class="comments-list">
+            <div class="comment">
+              <div class="comment-avatar">
+                <img
+                  src="https://picsum.photos/seed/user1/40/40"
+                  alt="User Avatar"
+                />
+              </div>
+              <div class="comment-content">
+                <div class="comment-header">
+                  <span class="comment-author">CodingWizard</span>
+                  <span class="comment-time">2 hours ago</span>
+                </div>
+                <div class="comment-text">
+                  <p>
+                    This is a great problem to learn about combinations!
+                    Remember the formula: C(n,r) = n! / (r! * (n-r)!)
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="comment-avatar">
+                <img
+                  src="https://picsum.photos/seed/user2/40/40"
+                  alt="User Avatar"
+                />
+              </div>
+              <div class="comment-content">
+                <div class="comment-header">
+                  <span class="comment-author">MathGenius</span>
+                  <span class="comment-time">1 hour ago</span>
+                </div>
+                <div class="comment-text">
+                  <p>
+                    I solved it by thinking about how to arrange the keys. It's
+                    a fun challenge!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="add-comment">
+            <textarea placeholder="Add your comment..."></textarea>
+            <button class="post-comment-btn">Post Comment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="navbar.js"></script>
+    <script src="problem.js"></script>
+  </body>
+</html>

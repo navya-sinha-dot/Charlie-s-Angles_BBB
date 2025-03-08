@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="contests.css" />
+    <title>Contests - CodeKids</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Aqualearn</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="daily-problem.html">Daily Problem</a>
+        <a href="courses.html">Courses</a>
+        <a href="problems.html">Problems</a>
+        <a href="contests.html" class="active">Contests</a>
+        <a href="community.html">Community</a>
+        <a href="#" class="profile-link"
+          ><img
+            src="https://picsum.photos/seed/user/40/40"
+            alt="Profile"
+            class="profile-pic"
+        /></a>
+      </div>
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
+
+    <div class="contests-container">
+      <div class="contests-header">
+        <h1>Coding Competitions</h1>
+        <p>Participate in weekend contests and earn special achievements!</p>
+      </div>
+
+      <div class="contests-tabs">
+        <div class="tab active" data-tab="upcoming">Upcoming</div>
+        <div class="tab" data-tab="ongoing">Ongoing</div>
+        <div class="tab" data-tab="past">Past Contests</div>
+      </div>
+
+      <div class="tab-content active" id="upcoming-contests">
+        <div class="contest-card">
+          <div class="contest-banner">
+            <img
+              src="https://picsum.photos/seed/weekend1/800/200"
+              alt="Weekend Challenge" />
+            <div class="contest-time">
+              <div class="countdown" data-time="2025-03-15T10:00:00">
+                <div class="time-unit">
+                  <span class="time-value">07</span>
+                  <span class="time-label">Days</span>
+                </div>
+                <div class="time-unit">
+                  <span class="time-value">12</span>
+                  <span class="time-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                  <span class="time-value">45</span>
+                  <span class="time-label">Mins</span>
+                </div>
+                <div class="time-unit">
+                  <span class="time-value">30</span>
+                  <span class="time-label">Secs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contest-details">
+            <h2>Weekend Challenge: Magic Kingdom</h2>
+            <p class="contest-date">March 15, 2025 • 10:00 AM - 12:00 PM</p>
+            <p class="contest-description">
+              Join the magical adventure in the kingdom of code! Solve three
+              enchanting problems and earn special rewards.
+            </p>
+            <div class="contest-info">
+              <div class="info-item">
+                <span class="info-icon">📝</span>
+                <span class="info-value">3 Problems</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">⏱️</span>
+                <span class="info-value">2 Hours</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">👥</span>
+                <span class="info-value">127 Registered</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">🏆</span>
+                <span class="info-value">Special Badge</span>
+              </div>
+            </div>
+            <button class="register-btn">Register Now</button>
+          </div>
+        </div>
+
+        <div class="contest-card">
+          <div class="contest-banner">
+            <img
+              src="https://picsum.photos/seed/weekend2/800/200"
+              alt="Weekend Challenge" />
+            <div class="contest-time">
+              <div class="countdown" data-time="2025-03-22T10:00:00">
+                <div class="time-unit">
+                  <span class="time-value">14</span>
+                  <span class="time-label">Days</span>
+                </div>
+                <div class="time-unit">
+                  <span class="time-value">12</span>
+                  <span class="time-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                  <span class="time-value">45</span>
+                  <span class="time-label">Mins</span>
+                </div>
+                <div class="time-unit">
+                  <span class="time-value">30</span>
+                  <span class="time-label">Secs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contest-details">
+            <h2>Weekend Challenge: Space Explorer</h2>
+            <p class="contest-date">March 22, 2025 • 10:00 AM - 12:00 PM</p>
+            <p class="contest-description">
+              Blast off into the coding cosmos! Navigate through space problems
+              and collect cosmic rewards.
+            </p>
+            <div class="contest-info">
+              <div class="info-item">
+                <span class="info-icon">📝</span>
+                <span class="info-value">3 Problems</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">⏱️</span>
+                <span class="info-value">2 Hours</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">👥</span>
+                <span class="info-value">93 Registered</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">🏆</span>
+                <span class="info-value">Special Badge</span>
+              </div>
+            </div>
+            <button class="register-btn">Register Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="ongoing-contests">
+        <div class="empty-state">
+          <div class="empty-icon">🏁</div>
+          <h3>No Ongoing Contests</h3>
+          <p>
+            Check back later for live contests or register for upcoming ones!
+          </p>
+        </div>
+      </div>
+
+      <div class="tab-content" id="past-contests">
+        <div class="contest-card past">
+          <div class="contest-banner greyscale">
+            <img
+              src="https://picsum.photos/seed/weekend-past1/800/200"
+              alt="Past Contest" />
+            <div class="contest-badge">
+              <span class="badge-icon">🏅</span>
+              <span class="badge-text">Completed</span>
+            </div>
+          </div>
+          <div class="contest-details">
+            <h2>Weekend Challenge: Dragon's Lair</h2>
+            <p class="contest-date">March 1, 2025 • 10:00 AM - 12:00 PM</p>
+            <p class="contest-description">
+              You ventured into the dragon's lair and solved coding puzzles to
+              claim the treasure!
+            </p>
+            <div class="contest-stats">
+              <div class="stat-item">
+                <div class="stat-label">Participants</div>
+                <div class="stat-value">245</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-label">Your Rank</div>
+                <div class="stat-value">78</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-label">Problems Solved</div>
+                <div class="stat-value">2/3</div>
+              </div>
+            </div>
+            <button class="view-results-btn">View Results</button>
+          </div>
+        </div>
+
+        <div class="contest-card past">
+          <div class="contest-banner greyscale">
+            <img
+              src="https://picsum.photos/seed/weekend-past2/800/200"
+              alt="Past Contest" />
+            <div class="contest-badge">
+              <span class="badge-icon">🏅</span>
+              <span class="badge-text">Completed</span>
+            </div>
+          </div>
+          <div class="contest-details">
+            <h2>Weekend Challenge: Pirate's Code</h2>
+            <p class="contest-date">February 22, 2025 • 10:00 AM - 12:00 PM</p>
+            <p class="contest-description">
+              You sailed the coding seas with Captain Code and discovered the
+              treasure of algorithms!
+            </p>
+            <div class="contest-stats">
+              <div class="stat-item">
+                <div class="stat-label">Participants</div>
+                <div class="stat-value">213</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-label">Your Rank</div>
+                <div class="stat-value">42</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-label">Problems Solved</div>
+                <div class="stat-value">3/3</div>
+              </div>
+            </div>
+            <button class="view-results-btn">View Results</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="navbar.js"></script>
+    <script src="contests.js"></script>
+  </body>
+</html>
