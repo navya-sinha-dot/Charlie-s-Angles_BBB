@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AquaLearn - Sign Up</title>
+    <title>AquaLearn - Login</title>
     <style>
       * {
         margin: 0;
@@ -27,8 +27,8 @@
         border-radius: 50%;
         background: radial-gradient(
           circle at 30% 30%,
-          rgba(255, 255, 255, 0.8),
-          rgba(100, 181, 246, 0.6)
+          rgba(255, 255, 255, 0.633),
+          rgba(76, 154, 217, 0.178)
         );
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         animation: float 10s infinite ease-in-out;
@@ -51,7 +51,7 @@
         }
       }
 
-      .signup-container {
+      .login-container {
         display: flex;
         background-color: white;
         border-radius: 15px;
@@ -95,7 +95,7 @@
       }
 
       h1 {
-        font-size: 30px;
+        font-size: 40px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         color: #013f42;
         margin-bottom: 20px;
@@ -132,15 +132,6 @@
         outline: none;
       }
 
-      .row {
-        display: flex;
-        gap: 15px;
-      }
-
-      .row .input-group {
-        flex: 1;
-      }
-
       .validation-icon {
         position: relative;
       }
@@ -153,7 +144,30 @@
         color: #4caf50;
       }
 
-      .btn-signup {
+      .remember-forgot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .remember {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .forgot-password {
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .forgot-password:hover {
+        text-decoration: underline;
+      }
+
+      .btn-login {
         background-color: #013f42;
         color: white;
         border: none;
@@ -166,11 +180,11 @@
         margin-bottom: 15px;
       }
 
-      .btn-signup:hover {
+      .btn-login:hover {
         background-color: #006f75;
       }
 
-      .btn-login {
+      .btn-signup {
         background-color: white;
         color: #013f42;
         border: 1px solid #013f42;
@@ -182,8 +196,8 @@
         transition: all 0.3s;
       }
 
-      .btn-login:hover {
-        background-color: #00aab33f;
+      .btn-signup:hover {
+        background-color: #f1f8fe;
       }
 
       .terms {
@@ -204,18 +218,13 @@
 
       /* Responsive adjustments */
       @media (max-width: 768px) {
-        .signup-container {
+        .login-container {
           flex-direction: column;
           width: 90%;
         }
 
         .image-section {
           display: none;
-        }
-
-        .row {
-          flex-direction: column;
-          gap: 0;
         }
       }
     </style>
@@ -244,79 +253,70 @@
       class="bubble"
       style="width: 70px; height: 70px; top: 30%; left: 40%"></div>
 
-    <div class="signup-container">
+    <div class="login-container">
       <div class="form-section">
-        <h1>Dive into a world of Coding!</h1>
+        <div class="logo">
+          <!--
+                <div class="logo-icon">AQ</div>
+                <span>AquaLearn</span>
+                -->
+          <img src="images/image-removebg-preview (13).png" width="70px" />
+        </div>
 
-        <form id="signupForm">
+        <h1>Dive into an ocean of code</h1>
+        <p class="welcome-text">
+          Welcome back! Please login to your account to continue
+        </p>
+
+        <form id="loginForm">
           <div class="input-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" placeholder="Your full name" />
-          </div>
-
-          <div class="row">
-            <div class="input-group">
-              <label for="age">Age</label>
-              <input type="number" id="age" placeholder="Your age" />
-            </div>
-
-            <div class="input-group">
-              <label for="email">Gmail</label>
-              <div class="validation-icon">
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="your.email@gmail.com" />
-                <i id="emailCheck" style="display: none">✓</i>
-              </div>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label for="school">School</label>
-            <input type="text" id="school" placeholder="Your school name" />
-          </div>
-
-          <div class="row">
-            <div class="input-group">
-              <label for="city">City</label>
-              <input type="text" id="city" placeholder="Your city" />
-            </div>
-
-            <div class="input-group">
-              <label for="country">Country</label>
-              <input type="text" id="country" placeholder="Your country" />
+            <label for="email">Email Address</label>
+            <div class="validation-icon">
+              <input
+                type="email"
+                id="email"
+                placeholder="your.email@example.com" />
+              <i id="emailCheck" style="display: none">✓</i>
             </div>
           </div>
 
           <div class="input-group">
             <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Create a password" />
+            <input type="password" id="password" placeholder="••••••••••••" />
           </div>
 
-          <button type="submit" class="btn-signup">SIGNUP</button>
+          <div class="remember-forgot">
+            <div class="remember">
+              <input type="checkbox" id="remember" />
+              <label for="remember">Remember</label>
+            </div>
+            <a href="#" class="forgot-password">Forgot Password</a>
+          </div>
+
+          <button type="submit" class="btn-login">LOGIN</button>
         </form>
 
-        <button class="btn-login" onclick="window.location.href='index.html'">
-          LOGIN
+        <button class="btn-signup" onclick="window.location.href='signup.html'">
+          SIGNUP
         </button>
+
+        <p class="terms">
+          By signing up, you agree to our company's
+          <a href="#">Terms and Conditions</a> and
+          <a href="#">Privacy Policy</a>
+        </p>
       </div>
 
       <div class="image-section">
         <!-- This section will be filled with bubbles from CSS -->
-        <!--
-            <div class="bubble" style="width: 150px; height: 150px; right: -30px; top: 20%;"></div>
+        <!--<div class="bubble" style="width: 150px; height: 150px; right: -30px; top: 20%;"></div>
             <div class="bubble" style="width: 100px; height: 100px; left: 20%; bottom: 10%;"></div>
             <div class="bubble" style="width: 80px; height: 80px; left: 10%; top: 30%;"></div>
             <div class="bubble" style="width: 200px; height: 200px; right: 10%; bottom: -50px;"></div>
-            -->
-
+        -->
         <img
-          src="images/original-8d29f4a428a2e54173a8bb858209ac45.webp"
-          height="730px"
+          src="images/original-5513e50aee5f24edc7ae437be10d6362.webp"
+          height="720px"
           width="800px" />
       </div>
     </div>
@@ -324,7 +324,7 @@
     <script>
       document.getElementById("email").addEventListener("input", function () {
         const emailCheck = document.getElementById("emailCheck");
-        const emailRegex = /^[^\s@]+@gmail\.com$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (emailRegex.test(this.value)) {
           emailCheck.style.display = "block";
@@ -334,50 +334,25 @@
       });
 
       document
-        .getElementById("signupForm")
+        .getElementById("loginForm")
         .addEventListener("submit", function (e) {
           e.preventDefault();
 
           // Get form values
-          const name = document.getElementById("name").value;
-          const age = document.getElementById("age").value;
           const email = document.getElementById("email").value;
-          const school = document.getElementById("school").value;
-          const city = document.getElementById("city").value;
-          const country = document.getElementById("country").value;
           const password = document.getElementById("password").value;
 
           // Basic validation
-          if (
-            !name ||
-            !age ||
-            !email ||
-            !school ||
-            !city ||
-            !country ||
-            !password
-          ) {
+          if (!email || !password) {
             alert("Please fill in all fields");
             return;
           }
 
-          if (!email.endsWith("@gmail.com")) {
-            alert("Please use a Gmail account");
-            return;
-          }
-
           // Here you would normally send the data to your server
-          console.log("Signup data:", {
-            name,
-            age,
-            email,
-            school,
-            city,
-            country,
-          });
+          console.log("Login attempt:", { email });
 
           // For demo purposes, just show an alert
-          alert("Account created successfully! Redirecting to homepage...");
+          alert("Login successful! Redirecting...");
           window.location.href = "dashboard.html";
         });
     </script>
